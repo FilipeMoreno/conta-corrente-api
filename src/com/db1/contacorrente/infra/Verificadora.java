@@ -1,7 +1,5 @@
 package com.db1.contacorrente.infra;
 
-import javax.management.RuntimeErrorException;
-
 import com.db1.contacorrente.ContaCorrente;
 
 public class Verificadora {
@@ -18,11 +16,11 @@ public class Verificadora {
 		}
 	}
 	
-	public static void verificarSaldoConta(Double value, String message) {
-		ContaCorrente contaCorrente = new ContaCorrente("000123", "0000012345", "Filipe Moreno");
-		if (value < 0 || value < contaCorrente.getSaldo()) {
-			throw new RuntimeException(message);
+	public static void verificarSaldo(Double value, String message) {
+		ContaCorrente contaCorrente = new ContaCorrente(null, null, null);
+		Double saldo = contaCorrente.getSaldo();
+		if (saldo < value) {
+			throw new RuntimeException();
 		}
 	}
-
 }

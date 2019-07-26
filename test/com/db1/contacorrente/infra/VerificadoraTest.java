@@ -38,4 +38,26 @@ public class VerificadoraTest {
 		Assert.assertNull(mensagem);
 	}
 	
+	@Test
+	public void deveRetornarExceptionQuandoValorForMaiorSaldo() {
+		String mensagem = null;
+		try {
+			Verificadora.verificarSaldo(10.0, "Você não possui saldo suficiente para realizar o saque");
+		} catch (RuntimeException e) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertEquals("Você não possui saldo suficiente para realizar o saque", mensagem);
+	}
+	
+	@Test
+	public void naoDeveRetornarExceptionQuandoValorSaqueForValido() {
+		String mensagem = null;
+		try {
+			Verificadora.verificarSaldo(0.0, "Você não possui saldo suficiente para realizar o saque");
+		} catch (RuntimeException e) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertEquals(null, mensagem);
+	}
+	
 }
