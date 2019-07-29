@@ -154,19 +154,19 @@ public class ContaCorrenteTest {
 		Assert.assertEquals(0, contaCorrente.getHistorico().size());
 	}
 	
-//	@Test
-//	public void deveRetornarExecaoQuandoValorSacadoForMaiorSaldo() {
-//		ContaCorrente contaCorrente = new ContaCorrente("000123", "0000012345", "Filipe Moreno");
-//		String mensagem = null;
-//		try {
-//			contaCorrente.sacar(10.0);
-//		} catch (RuntimeException e) {
-//			mensagem = e.getMessage();
-//		}
-//		Assert.assertEquals("Você não possui saldo suficiente para realizar o saque", mensagem);
-//		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
-//		Assert.assertEquals(0, contaCorrente.getHistorico().size());
-//	}
+	@Test
+	public void deveRetornarExecaoQuandoValorSacadoForMaiorSaldo() {
+		ContaCorrente contaCorrente = new ContaCorrente("000123", "0000012345", "Filipe Moreno");
+		String mensagem = null;
+		try {
+			contaCorrente.sacar(10.0);
+		} catch (RuntimeException e) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertEquals("Você não possui saldo suficiente para realizar o saque", mensagem);
+		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
+		Assert.assertEquals(0, contaCorrente.getHistorico().size());
+	}
 	
 	@Test
 	public void deveSacarValor() {
