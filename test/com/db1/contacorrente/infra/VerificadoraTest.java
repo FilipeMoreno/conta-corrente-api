@@ -42,7 +42,7 @@ public class VerificadoraTest {
 	public void  naoDeveRetornarExceptionQuandoValorForZero2() {
 		String mensagem = null;
 		try {
-			Verificadora.valorMenorQueZero(0.0, "Valor inválido");
+			Verificadora.valorMaiorOuIgualQueZero(0.0, "Valor inválido");
 		} catch (RuntimeException e) {
 			mensagem = e.getMessage();
 		}
@@ -53,7 +53,7 @@ public class VerificadoraTest {
 	public void deveRetornarExceptionQuandoNull2() {
 		String mensagem = null;
 		try {
-			Verificadora.valorMenorQueZero(null, "Valor não pode ser nulo");
+			Verificadora.valorMaiorOuIgualQueZero(null, "Valor não pode ser nulo");
 		} catch (RuntimeException e) {
 			mensagem = e.getMessage();
 		}

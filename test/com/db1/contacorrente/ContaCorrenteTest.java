@@ -122,7 +122,7 @@ public class ContaCorrenteTest {
 			mensagem = e.getMessage();
 		}
 		Assert.assertEquals("Valor a ser sacado deve ser maior que zero", mensagem);
-		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
+		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0);
 		Assert.assertEquals(0, contaCorrente.getHistorico().size());
 	}
 	
@@ -136,7 +136,7 @@ public class ContaCorrenteTest {
 			mensagem = e.getMessage();
 		}
 		Assert.assertEquals("Valor a ser sacado deve ser maior que zero", mensagem);
-		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
+		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0);
 		Assert.assertEquals(0, contaCorrente.getHistorico().size());
 	}
 	
@@ -150,7 +150,7 @@ public class ContaCorrenteTest {
 			mensagem = e.getMessage();
 		}
 		Assert.assertEquals("Valor a ser sacado deve ser maior que zero", mensagem);
-		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
+		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0);
 		Assert.assertEquals(0, contaCorrente.getHistorico().size());
 	}
 	
@@ -159,20 +159,20 @@ public class ContaCorrenteTest {
 		ContaCorrente contaCorrente = new ContaCorrente("000123", "0000012345", "Filipe Moreno");
 		String mensagem = null;
 		try {
+			contaCorrente.depositar(5.0);
 			contaCorrente.sacar(10.0);
 		} catch (RuntimeException e) {
 			mensagem = e.getMessage();
 		}
 		Assert.assertEquals("Você não possui saldo suficiente para realizar o saque", mensagem);
-		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
-		Assert.assertEquals(0, contaCorrente.getHistorico().size());
+		Assert.assertEquals(5.0, contaCorrente.getSaldo(), 0.0);
+		Assert.assertEquals(1, contaCorrente.getHistorico().size());
 	}
 	
 	@Test
 	public void deveSacarValor() {
 		ContaCorrente contaCorrente = new ContaCorrente("000123", "0000012345", "Filipe Moreno");
 		contaCorrente.depositar(100.0);
-		System.out.println(contaCorrente.getSaldo());
 		contaCorrente.sacar(10.0);
 		
 		Assert.assertEquals(90.0, contaCorrente.getSaldo(), 0.0001);
