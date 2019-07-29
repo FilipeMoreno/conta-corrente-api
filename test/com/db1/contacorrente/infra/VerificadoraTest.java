@@ -38,4 +38,15 @@ public class VerificadoraTest {
 		Assert.assertNull(mensagem);
 	}
 	
+	@Test
+	public void  naoDeveRetornarExceptionQuandoValorForZero() {
+		String mensagem = null;
+		try {
+			Verificadora.valorMaiorOuIgualZero(0.0, "Valor inválido");
+		} catch (RuntimeException e) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertNull(mensagem);
+	}
+	
 }

@@ -13,7 +13,7 @@ public class Verificadora {
 			throw new RuntimeException(message);
 		}
 	}
-	public static void verificarSaldo(Double value, String message) {
+	public static void valorMaiorOuIgualZero(Double value, String message) {
 		if (value == null || value < 0) {
 			throw new RuntimeException(message);
 		}
