@@ -13,4 +13,9 @@ public class Verificadora {
 			throw new RuntimeException(message);
 		}
 	}
+	public static void verificarSaldo(Double value, String message) {
+		if (value == null || value < 0) {
+			throw new RuntimeException(message);
+		}
+	}
 }
