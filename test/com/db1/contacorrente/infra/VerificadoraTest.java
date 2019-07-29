@@ -50,6 +50,17 @@ public class VerificadoraTest {
 	}
 	
 	@Test
+	public void  naoDeveRetornarExceptionQuandoValorForMaiorQUeZero() {
+		String mensagem = null;
+		try {
+			Verificadora.valorMaiorOuIgualQueZero(3.0, "Valor inválido");
+		} catch (RuntimeException e) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertNull(mensagem);
+	}
+	
+	@Test
 	public void deveRetornarExceptionQuandoNull2() {
 		String mensagem = null;
 		try {
